@@ -1,11 +1,11 @@
 import os
 import telebot
-from telebot import Telebot,types
+from telebot import TeleBot,types
 
 Admin = {7233221453}
 Token = "7996743693:AAF1KVeutgHZwX3961oGfI85ajlXmoP7VYA"
 
-bot = Telebot(Token)
+bot = TeleBot(Token)
 users = set()
 
 import keep_alive
