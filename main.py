@@ -8,8 +8,8 @@ Token = "7996743693:AAF1KVeutgHZwX3961oGfI85ajlXmoP7VYA"
 bot = Telebot(Token)
 users = set()
 
-from keep_alive import keep_alive
-keep_alive()
+import keep_alive
+keep_alive.keep_alive()
 
 @bot.message_handler(commands=["start"])
 def welcome(message):
