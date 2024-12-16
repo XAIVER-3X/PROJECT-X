@@ -16,9 +16,9 @@ app = Flask(__name__)
 
 @app.route("/api",methods=["GET","POST"])
 def default_screen():
-    if request.method = "GET":
+    if request.method == "GET":
         return "{'HEY':'USER'}"
-    elif request.method = "POST":
+    elif request.method == "POST":
         return "{'error':'no data,headers found !'}"
 
 @app.route("/auth:<token>",method=["GET"])
