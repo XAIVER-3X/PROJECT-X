@@ -14,14 +14,14 @@ from flask import Flask,jsonify,request
 
 app = Flask(__name__)
 
-@app.route("/api",methods=["GET","POST"])
+@app.route("/",methods=["GET","POST"])
 def default_screen():
     if request.method == "GET":
-        return "{'HEY':'USER'}"
+        return jsonify({'HEY':'USER'})
     elif request.method == "POST":
-        return "{'error':'no data,headers found !'}"
+        return jsonify({'error':'no data,headers found !'})
 
-@app.route("/auth:<token>",method=["GET"])
+@app.route("/auth:<token>",methods=["GET"])
 def auth_user(token):
     try:
         original_raw = requests.get("https://www.example.com").text
@@ -44,13 +44,13 @@ def auth_user(token):
             "error":"no internet connection.try again.."
         })
 
-@app.route("/auth/login",methods=["GET","POST"])
+@app.route("/auth",methods=["GET","POST"])
 def fb_auth_login():
-    data = request.data
-    headers = request.headers
-    if request.method = "GET":
+    # data = request.data
+#     headers = request.headers
+    if request.method == "GET":
         return jsonify({"{'error':'only post request allowed'}"})
-    elif request.method = "POST":
+    elif request.method == "POST":
         email = data.get("email")
         password = data.get("password")
         auth_tok = headers.get("access_token")
